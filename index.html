@@ -1,14 +1,77 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Frontend Mentor Projects</title>
-</head>
-<body>
-  <h1>Frontend Mentor Projects</h1>
-  <ul>
-    <li><a href="qr-code-component/">QR Code Component</a></li>
-    <li><a href="another-project/">Another Project</a></li>
-  </ul>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor Projects | kaifaith</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Outfit, sans-serif;
+      }
+
+      body {
+        background-color: hsl(212, 45%, 89%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+      }
+
+      h1 {
+        color: hsl(218, 44%, 22%);
+        font-size: 28px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .project-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .project-list a {
+        display: block;
+        background-color: #fff;
+        padding: 16px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: hsl(218, 44%, 22%);
+        font-weight: 700;
+        box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.08);
+        transition: transform 0.15s ease;
+      }
+
+      .project-list a:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Frontend Mentor Projects</h1>
+      <ul class="project-list">
+        <li><a href="qr-code-component/">QR Code Component</a></li>
+        <!-- add more <li> entries here as you upload new projects -->
+      </ul>
+    </div>
+  </body>
 </html>
