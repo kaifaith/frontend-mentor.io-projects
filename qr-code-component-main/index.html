@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Component</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===== Reset & Global ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Outfit, sans-serif;
+      }
+
+      /* ===== Layout ===== */
+      body {
+        background-color: hsl(212, 45%, 89%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .main-container {
+        text-align: center;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        width: 250px;
+      }
+
+      .qr-code {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .text-container {
+        padding: 0 12px;
+      }
+
+      /* ===== Typography ===== */
+      p {
+        margin-bottom: 8px;
+      }
+
+      .sub-title {
+        font-weight: 700;
+        font-size: 18px;
+        color: hsl(218, 44%, 22%);
+      }
+
+      .desc {
+        font-size: 12px;
+        color: hsl(220, 15%, 55%);
+        line-height: 1.5;
+      }
+
+      /* ===== Images ===== */
+      .qr-code {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      /* ===== Desktop (1440px) ===== */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 320px;
+          padding: 16px;
+        }
+
+        .qr-code {
+          max-width: 280px;
+          margin-bottom: 24px;
+        }
+
+        .sub-title {
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
+
+        .desc {
+          font-size: 14px;
+          margin-bottom: 12px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <img src="images/image-qr-code.png" alt="QR Code" class="qr-code" />
+
+      <div class="text-container">
+        <p class="sub-title">
+          Improve your front-end skills by building projects
+        </p>
+        <p class="desc">
+          Scan the QR code to visit Frontend Mentor and take your coding skills
+          to the next level
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
