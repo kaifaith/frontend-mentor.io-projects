@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+  </head>
+  <body>
+    <form action="" class="rating-card">
+      <div class="icon-wrapper" aria-hidden="true">
+        <img src="./images/icon-star.svg" alt="Star icon" />
+      </div>
+
+      <h1>How did we do?</h1>
+
+      <p>
+        Please let us know how we did with your support request. All feedback is
+        appreciated to help us improve our offering!
+      </p>
+
+      <fieldset class="rating-options">
+        <div class="rating-option">
+          <input type="radio" name="rating" id="rating-1" value="1" required />
+          <label for="rating-1">1</label>
+        </div>
+
+        <div class="rating-option">
+          <input type="radio" name="rating" id="rating-2" value="2" required />
+          <label for="rating-2">2</label>
+        </div>
+
+        <div class="rating-option">
+          <input type="radio" name="rating" id="rating-3" value="3" required />
+          <label for="rating-3">3</label>
+        </div>
+
+        <div class="rating-option">
+          <input type="radio" name="rating" id="rating-4" value="4" required />
+          <label for="rating-4">4</label>
+        </div>
+
+        <div class="rating-option">
+          <input type="radio" name="rating" id="rating-5" value="5" required />
+          <label for="rating-5">5</label>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="submit-btn">SUBMIT</button>
+    </form>
+
+    <!-- Thank you state start -->
+
+    <div class="thank-you-card">
+      <img src="./images/illustration-thank-you.svg" alt="Thank you icon" />
+
+      <div class="selected-txt">
+        <p>You selected <span class="selected-rating"> </span> out of 5</p>
+      </div>
+
+      <h2>Thank you!</h2>
+
+      <p>
+        We appreciate you taking the time to give a rating. If you ever need
+        more support, don’t hesitate to get in touch!
+      </p>
+    </div>
+
+    <script>
+      const thankCard = document.querySelector(".thank-you-card");
+      const ratingCard = document.querySelector(".rating-card");
+      const ratingNum = document.querySelector(".selected-rating");
+
+      ratingCard.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const ratingInput = document.querySelector(
+          'input[name="rating"]:checked',
+        );
+
+        thankCard.classList.add("show");
+        ratingCard.classList.add("no-display");
+        ratingNum.textContent = ratingInput.value;
+      });
+    </script>
+  </body>
+</html>
