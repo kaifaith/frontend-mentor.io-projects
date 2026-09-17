@@ -22,52 +22,85 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="logo-container">
-        <img src="./assets/images/logo.svg" alt="Maison Soleil logo" />
+      <div class="nav-header">
+        <div class="logo-container">
+          <img src="./assets/images/logo.svg" alt="Maison Soleil logo" />
+        </div>
+
+        <button
+          id="menu-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <img
+            id="menu-icon"
+            src="./assets/images/icon-menu.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
       </div>
 
-      <button
-        id="menu-btn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="primary-nav"
-      >
-        <img src="./assets/images/icon-menu.svg" alt="" aria-hidden="true" />
-      </button>
+      <div class="nav-menu" id="nav-menu">
+        <nav id="primary-nav" aria-label="Booking sections">
+          <ul>
+            <li class="dm-sans">
+              <img src="./assets/images/icon-bed.svg" alt="Bed icon" />Your stay
+              <span>1</span>
+            </li>
+            <li class="dm-sans">
+              <img src="./assets/images/icon-house.svg" alt="House icon" />The
+              house
+            </li>
+            <li class="dm-sans">
+              <img
+                src="./assets/images/icon-pin.svg"
+                alt="Map pin icon"
+              />Around town
+            </li>
+            <li class="dm-sans">
+              <img
+                src="./assets/images/icon-breakfast-outline.svg"
+                alt="Breakfast icon"
+              />Breakfast
+            </li>
+            <li class="dm-sans">
+              <img
+                src="./assets/images/icon-mail.svg"
+                alt="Envelope icon"
+              />Messages
+            </li>
+          </ul>
+        </nav>
 
-      <!--
+        <div class="weather-sidebar-container">
+          <section class="local-weather-container" aria-label="Local weather">
+            <img src="./assets/images/icon-weather.svg" alt="Weather icon" />
+            <h2>TODAY IN CASSIS</h2>
+            <p>27°</p>
+            <p>Sunny · light breeze</p>
+          </section>
 
-  <nav id="primary-nav" aria-label="Booking sections">
-    <ul>
-      <li>Your stay <span>1</span></li>
-      <li>The house</li>
-      <li>Around town</li>
-      <li>Breakfast</li>
-      <li>Messages</li>
-    </ul>
-  </nav>
-
-  <section class="local-weather-container" aria-label="Local weather">
-    <h2>Today in Cassis</h2>
-    <p>27°</p>
-    <p>Sunny · light breeze</p>
-  </section>
-
-  <footer class="sidebar-footer">
-    <p>Est. 1987</p>
-    <address>Maison Soleil · 12 Rue des Oliviers · Cassis</address>
-    <p>© 2026 Maison Soleil</p>
-  </footer>-->
+          <footer class="sidebar-footer">
+            <p>Est. 1987</p>
+            <address>Maison Soleil · 12 Rue des Oliviers · Cassis</address>
+            <p>© 2026 Maison Soleil</p>
+          </footer>
+        </div>
+      </div>
     </header>
 
     <main>
       <div class="heading-container">
-        <p>BOOKING · CONFIRMED</p>
-        <h1 class="fraunces-normal">
-          Bienvenue,
-          <span class="customer-name fraunces-400-italic">Lucia.</span>
-        </h1>
+        <div>
+          <p>BOOKING · CONFIRMED</p>
+          <h1 class="fraunces-normal">
+            Bienvenue,
+            <span class="customer-name fraunces-400-italic">Lucia.</span>
+          </h1>
+        </div>
 
         <div class="button-heading-container">
           <button type="button" id="print-btn" class="dm-sans">
@@ -86,7 +119,7 @@
             <img src="./assets/images/icon-sun.svg" alt="" aria-hidden="true" />
           </header>
 
-          <div class="customer-name">
+          <div class="customer-name-container">
             <p class="note-txt-host fraunces-400-italic">
               A note from your host,
               <span class="customer-name2">Margaux.</span>
@@ -96,33 +129,40 @@
               lemonade cold, and the cat – Poivre – pretending not to notice
               you.
             </p>
+          </div>
 
-            <div class="room-txt">
-              <p>Room</p>
-              <p>La Garrigue</p>
-            </div>
+          <div class="room-txt">
+            <p>ROOM</p>
+            <p>La Garrigue</p>
           </div>
         </article>
 
         <article class="receipt-card">
           <header class="receipt-card-header-section">
-            <h2>Receipt</h2>
-            <p>№ MS-2026</p>
-            <p>0421-AH</p>
-            <p>Your stay</p>
+            <div>
+              <h2>RECEIPT</h2>
+              <p>Your stay</p>
+            </div>
+
+            <div>
+              <p>№ MS-2026</p>
+              <p>0421-AH</p>
+            </div>
           </header>
 
           <div class="receipt-card-main">
-            <div class="check-in-details">
-              <h3>Check in</h3>
-              <p><time datetime="2026-04-25">25 Apr</time></p>
-              <p>Saturday · 15:00</p>
-            </div>
+            <div class="check-details-container">
+              <div class="check-in-details">
+                <h3>CHECK IN</h3>
+                <p><time datetime="2026-04-25">25 Apr</time></p>
+                <p>Saturday · 15:00</p>
+              </div>
 
-            <div class="check-out-details">
-              <h3>Check out</h3>
-              <p><time datetime="2026-04-29">29 Apr</time></p>
-              <p>Wednesday · 11:00</p>
+              <div class="check-out-details">
+                <h3>CHECK OUT</h3>
+                <p><time datetime="2026-04-29">29 Apr</time></p>
+                <p>Wednesday · 11:00</p>
+              </div>
             </div>
 
             <dl class="receipt-bill-details">
@@ -142,12 +182,12 @@
 
             <div class="receipt-total">
               <div>
-                <p>Total paid</p>
+                <p>TOTAL PAID</p>
                 <p>€ 730.40</p>
               </div>
 
               <div class="barcode">
-                <p>Paid · Wise · GBP</p>
+                <p>PAID · WISE · GBP</p>
                 <img
                   src="./assets/images/icon-barcode.svg"
                   alt=""
@@ -208,17 +248,25 @@
             <p class="fraunces-normal">Le Soleil · Guest</p>
             <p>Password below</p>
 
-            <div class="network-container">
-              <p>Network</p>
-              <p>Le Soleil · Guest</p>
-            </div>
+            <div class="networkpass-container">
+              <div class="network-container">
+                <p>NETWORK</p>
+                <p>Le Soleil · Guest</p>
+              </div>
 
-            <div class="password-container">
-              <p>Password</p>
-              <p>soleil-2026</p>
-              <button type="button" aria-label="Copy wifi password">
-                Copy
-              </button>
+              <div class="password-container">
+                <p>PASSWORD</p>
+                <div>
+                  <p>soleil-2026</p>
+                  <button
+                    id="copy-btn"
+                    type="button"
+                    aria-label="Copy wifi password"
+                  >
+                    COPY
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -250,5 +298,7 @@
         </article>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
