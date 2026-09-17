@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --color-neutral-900: hsl(33, 15%, 15%);
   --color-neutral-800: hsl(33, 22%, 20%);
   --color-neutral-700: hsl(32, 20%, 29%);
@@ -39,6 +39,11 @@ body {
   background-color: var(--color-neutral-200);
   font-size: var(--font-size-body);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 0;
+  right: 0;
 }
 
 p {
@@ -46,7 +51,11 @@ p {
 }
 
 main {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+header {
+  margin-bottom: 18px;
 }
 
 .fraunces-normal {
@@ -88,11 +97,15 @@ main {
 }
 
 .site-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--color-neutral-600);
+}
+
+.nav-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
-  border-bottom: 1px solid var(--color-neutral-600);
+  width: 100%;
 }
 
 #menu-btn {
@@ -106,7 +119,7 @@ main {
   cursor: pointer;
 }
 
-.heading-container > p:first-child {
+.heading-container > div:first-child p:first-child {
   font-family: var(--font-mono);
   color: var(--color-neutral-600);
   font-size: 0.8rem;
@@ -127,6 +140,11 @@ main {
   border: 1px solid var(--color-neutral-600);
   min-width: 140px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+#print-btn:active {
+  border: 3px solid var(--color-terracotta-600);
 }
 
 #print-btn {
@@ -139,9 +157,25 @@ main {
   color: var(--color-neutral-400);
 }
 
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
 .heading-container {
   padding: 14px;
   margin-bottom: 30px;
+  width: min(100%, 340px);
+  display: flex;
+  flex-direction: column;
+}
+
+.heading-container > div:first-child {
+  align-self: flex-start;
 }
 
 .heading-container > p {
@@ -156,24 +190,34 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .host-card {
   background-color: var(--color-terracotta-600);
   padding: 18px;
   border-radius: 20px;
-  max-width: 280px;
-  transform: rotate(2deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  transform: rotate(4deg);
   position: relative;
+  width: min(100%, 300px);
+  min-height: 435px;
+  z-index: 2;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+    0 24px 45px rgba(158, 57, 27, 0.32),
+    0 8px 18px rgba(158, 57, 27, 0.18);
+
   background:
     radial-gradient(
       circle at top right,
-      hsl(45, 90%, 60%, 0.4),
+      hsl(45 90% 60% / 0.4),
       transparent 50%
     ),
-    linear-gradient(135deg, hsl(20, 70%, 45%), hsl(15, 65%, 35%));
+    linear-gradient(135deg, hsl(20 70% 45%), hsl(15 65% 35%));
 }
 
 .host-card header {
@@ -181,6 +225,13 @@ main {
   justify-content: space-between;
   border-top: 1px dashed var(--color-neutral-50);
   padding-top: 10px;
+}
+
+.host-card > header p:first-child {
+  font-weight: 500;
+  color: var(--color-sun-50) !important;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
 }
 
 .host-card p {
@@ -194,7 +245,7 @@ main {
 .note-content-txt {
   color: var(--color-sun-50) !important;
   font-size: 0.8rem;
-  margin-bottom: 60px;
+  margin-bottom: 65px;
 }
 
 .customer-name2 {
@@ -208,20 +259,23 @@ main {
 .guest-info-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+  flex-wrap: wrap;
   margin-top: 40px;
+  gap: 10px;
+  width: 100%;
 }
 
 .guest-card {
   background-color: var(--color-neutral-50);
   border: 1px solid var(--color-neutral-600);
   border-radius: 10px;
-  width: 320px;
-  padding: 18px;
+  padding: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  min-height: 215px;
+  flex: 1 1 auto;
+  align-self: center;
 }
-
 .upper-div {
   display: flex;
   align-items: center;
@@ -247,16 +301,19 @@ main {
   background-color: var(--color-terracotta-600);
 }
 
-.arrival-card h2, .arrival-card .upper-div p {
-    color: var(--color-terracotta-600);
+.arrival-card h2,
+.arrival-card .upper-div p {
+  color: var(--color-terracotta-600);
 }
 
-.wifi-card h2, .wifi-card .upper-div p {
-    color: var(--color-blue-500);
+.wifi-card h2,
+.wifi-card .upper-div p {
+  color: var(--color-blue-500);
 }
 
-.breakfast-card h2, .breakfast-card .upper-div p {
-    color: var(--color-rose-500);
+.breakfast-card h2,
+.breakfast-card .upper-div p {
+  color: var(--color-rose-500);
 }
 .wifi-img {
   background-color: var(--color-blue-500);
@@ -267,32 +324,444 @@ main {
 }
 
 .guest-card h2 {
-    font-family: var(--font-mono);
-    font-weight: 400;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 .card-logo-and-title + p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .lower-div > p:first-child {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 
 .lower-div > p:nth-child(2) {
-    color: var(--color-neutral-600);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 15px;
+  color: var(--color-neutral-600);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
 .lower-div > p:nth-child(3) {
-    color: var(--color-neutral-800);
-    line-height: 20px;
-    font-family: var(--font-body);
-    font-weight: 500;
+  color: var(--color-neutral-800);
+  line-height: 20px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.receipt-card {
+  background-color: var(--color-neutral-50);
+  padding: 18px;
+  border-radius: 20px;
+  margin-top: 10px;
+  transform: rotate(-4deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+  width: min(100%, 300px);
+  min-height: 435px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.receipt-card-header-section {
+  border-bottom: 1px dashed var(--color-neutral-600);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.receipt-card-header-section h2 {
+  margin: 0 0 5px 0;
+}
+
+.receipt-card-header-section h2,
+.receipt-card-main h3 {
+  font-weight: 500;
+  color: var(--color-neutral-600);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.receipt-card-header-section > div:nth-child(2) p:first-child,
+.receipt-card-header-section > div:nth-child(2) p:nth-child(2) {
+  font-size: 0.7rem;
+  color: var(--color-neutral-600);
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.receipt-card-header-section > div:first-child p {
+  font-size: 1.3rem;
+  font-family: var(--font-display);
+  color: var(--color-neutral-800);
+}
+
+.receipt-card-main > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.check-in-details,
+.check-out-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.receipt-card-main time {
+  font-size: 2rem;
+  font-family: var(--font-display);
+}
+
+.receipt-total > div:first-child p:last-child {
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+}
+
+.check-in-details > p:nth-child(3),
+.check-out-details > p:nth-child(3) {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-neutral-600);
+  font-weight: 600;
+}
+
+.check-details-container {
+  border-bottom: 1px dashed var(--color-neutral-600);
+  padding-bottom: 20px;
+}
+
+.receipt-bill-details {
+  border-bottom: 1px solid var(--color-neutral-700);
+  padding-bottom: 10px;
+}
+
+.receipt-bill-details > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+}
+
+.receipt-bill-details dd {
+  margin: 0;
+}
+
+.receipt-bill-details > div:first-child,
+.receipt-bill-details > div:nth-child(2) {
+  color: var(--color-neutral-900);
+  font-weight: 600;
+}
+
+.receipt-bill-details > div:last-child {
+  color: var(--color-neutral-700);
+}
+
+.receipt-total {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.receipt-total > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.receipt-total > div p:first-child {
+  letter-spacing: 2px;
+  color: var(--color-neutral-600);
+  font-family: var(--font-mono);
+}
+
+.receipt-total > div:last-child p {
+  font-size: 0.6rem;
+}
+
+.networkpass-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.network-container,
+.password-container {
+  background-color: var(--color-neutral-400);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.network-container > p:first-child,
+.password-container > p:first-child {
+  font-size: 0.7rem;
+  color: var(--color-neutral-600);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 2.5px;
+}
+
+.network-container > p:last-child,
+.password-container > div p:first-child {
+  font-size: 0.7rem;
+  color: var(--color-neutral-800);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.password-container > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#copy-btn {
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid var(--color-neutral-600);
+  font-size: 0.7rem;
+  color: var(--color-neutral-600);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.room-txt > p:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--color-neutral-400);
+  margin-bottom: 8px;
+}
+
+.room-txt > p:last-child {
+  font-size: 1.3rem;
+  color: var(--color-neutral-400);
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--color-neutral-200);
+  width: 100%;
+  left: 0;
+  top: 71px;
+  z-index: 5;
+  padding: 20px;
+  min-height: calc(100% - 70px);
+}
+
+.nav-menu.show {
+  display: flex;
+}
+
+#primary-nav ul {
+  padding: 0;
+}
+
+#primary-nav li {
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 2px;
+  color: var(--color-neutral-800);
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#primary-nav li:hover {
+  background-color: white;
+}
+
+#primary-nav li:active {
+  border: 3px solid var(--color-terracotta-600);
+}
+
+#primary-nav li:first-of-type {
+  background-color: white;
+}
+
+#primary-nav li:first-of-type span {
+  margin-left: auto;
+  background-color: var(--color-terracotta-600);
+  padding: 2px 5px;
+  border-radius: 50%;
+  color: white;
+  font-size: 0.5rem;
+}
+
+.local-weather-container {
+  background-color: var(--color-sun-300);
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 14px 28px hsl(42 83% 58% / 0.22),
+    0 4px 10px hsl(33 22% 20% / 0.12);
+}
+
+.local-weather-container img {
+  position: absolute;
+  right: -18px;
+  top: -30px;
+}
+
+.local-weather-container h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: var(--color-neutral-600);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+}
+
+.local-weather-container p:nth-child(3) {
+  font-size: 2rem;
+  font-family: var(--font-display);
+}
+
+.local-weather-container p:last-child {
+  color: var(--color-neutral-800);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+}
+
+.weather-sidebar-container {
+  margin-top: auto;
+}
+
+.sidebar-footer {
+  border-top: 1.2px dashed var(--color-neutral-600);
+  padding-top: 12px;
+  display: block;
+  margin-top: 20px;
+}
+
+.sidebar-footer > * {
+  font-weight: 500;
+  color: var(--color-neutral-600);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.sidebar-footer p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1020px) {
+  body {
+    flex-direction: row;
+  }
+
+  main {
+    padding: 30px;
+    flex: 1 1 80%;
+    margin: 0;
+  }
+
+  .booking-cards-container::before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background: url("./assets/images/icon-sun.svg") center / contain no-repeat;
+  }
+
+  .booking-cards-container {
+    flex-direction: row;
+    justify-content: center;
+    flex-direction: row-reverse;
+    position: relative;
+    isolation: isolate;
+    cursor: pointer;
+  }
+
+  .booking-cards-container:hover .receipt-card {
+    transform: translateX(-35px) rotate(-7deg);
+  }
+
+  .booking-cards-container:hover .host-card {
+    transform: translateX(35px) rotate(7deg);
+  }
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 0 20%;
+    padding: 0 20px;
+    margin: 0;
+    border-right: 1px solid var(--color-neutral-600);
+  }
+
+  .heading-container {
+    padding: 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-header {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-neutral-600);
+  }
+
+  .guest-info-container {
+    justify-items: center;
+    margin-top: 100px;
+    flex-direction: row;
+  }
+
+  #menu-btn {
+    display: none;
+  }
+
+  .receipt-card,
+  .host-card {
+    min-width: 400px;
+    transition: transform 300ms ease;
+    z-index: 1;
+  }
+
+  .receipt-card {
+    margin: 0;
+  }
+
+  .nav-menu {
+    padding: 20px 0;
+    position: static;
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .host-card,
+  .receipt-card {
+    transition: none;
+  }
 }
