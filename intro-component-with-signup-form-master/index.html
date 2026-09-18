@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="heading-container">
+        <h1>Learn to code by watching others</h1>
+
+        <p>
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think is
+          invaluable.
+        </p>
+      </div>
+
+      <div class="right-container">
+        <div class="try-it-container">
+          <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
+        </div>
+
+        <form action="" novalidate>
+          <fieldset>
+            <div class="input-wrapper">
+              <input
+                type="text"
+                name="first-name"
+                placeholder="First Name"
+                id="first-name"
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <input
+                type="text"
+                name="last-name"
+                placeholder="Last Name"
+                id="last-name"
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                id="email"
+              />
+            </div>
+
+            <div class="input-wrapper">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+          </fieldset>
+
+          <button id="submit-btn" type="submit">Claim your free trial</button>
+
+          <p>
+            By clicking the button, you are agreeing to our
+            <span>Terms and Services</span>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const form = document.querySelector("form");
+      const submitBtn = document.getElementById("submit-btn");
+      const passInput = document.getElementById("password");
+      const emailInput = document.getElementById("email");
+      const firstNameInput = document.getElementById("first-name");
+      const lastNameInput = document.getElementById("last-name");
+
+      const checkInput = (input) => {
+        const inputWrapper = input.parentElement;
+
+        if (input.value.trim() === "") {
+          if (!inputWrapper.querySelector(".errorIcon")) {
+            const errorIcon = document.createElement("img");
+            errorIcon.className = "errorIcon";
+            errorIcon.src = "./images/icon-error.svg";
+            errorIcon.alt = "Error Icon";
+
+            const errorMsg = document.createElement("p");
+            errorMsg.className = "errorMessage";
+            errorMsg.textContent = `${input.placeholder} cannot be empty`;
+
+            input.after(errorIcon, errorMsg);
+          }
+
+          input.classList.add("isEmpty");
+        } else if (
+          input.type === "email" &&
+          input.value.trim() !== "" &&
+          input.validity.typeMismatch
+        ) {
+          inputWrapper.querySelector(".errorIcon")?.remove();
+          inputWrapper.querySelector(".errorMessage")?.remove();
+
+          const errorIcon = document.createElement("img");
+          errorIcon.className = "errorIcon";
+          errorIcon.src = "./images/icon-error.svg";
+          errorIcon.alt = "Error Icon";
+
+          const errorMsg = document.createElement("p");
+          errorMsg.className = "errorMessage";
+          errorMsg.textContent = "Looks like this is not an email";
+
+          input.after(errorIcon, errorMsg);
+          input.classList.add("isEmpty");
+        } else {
+          input.classList.remove("isEmpty");
+          inputWrapper.querySelector(".errorIcon")?.remove();
+          inputWrapper.querySelector(".errorMessage")?.remove();
+        }
+      };
+
+      const input = [firstNameInput, lastNameInput, emailInput, passInput];
+
+      const clearError = (input) => {
+        const inputWrapper = input.parentElement;
+
+        input.classList.remove("isEmpty");
+        inputWrapper.querySelector(".errorIcon")?.remove();
+        inputWrapper.querySelector(".errorMessage")?.remove();
+      };
+
+      input.forEach((input) => {
+        input.addEventListener("focus", () => clearError(input));
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        input.forEach(checkInput);
+      });
+    </script>
+  </body>
+</html>
