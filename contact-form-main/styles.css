@@ -1,0 +1,152 @@
+@layer reset, base, components, utilities;
+
+@font-face {
+  font-family: "Karla";
+  src: url("assets/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  p {
+    margin-block: 0;
+  }
+
+  input,
+  button,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer base {
+  :root {
+    --green-200: hsl(148, 38%, 91%);
+    --green-600: hsl(169, 82%, 27%);
+    --red: hsl(0, 66%, 54%);
+
+    --white: hsl(0, 0%, 100%);
+    --grey-500: hsl(186, 15%, 59%);
+    --grey-900: hsl(187, 24%, 22%);
+
+    --font-family: "Karla", sans-serif;
+    --font-size-label: 16px;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+  }
+
+  body {
+    accent-color: var(--green-600);
+    background-color: var(--green-200);
+    min-height: 100dvh;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 30px;
+  }
+}
+
+@layer components {
+  .main-wrapper {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: min(2em, 20px);
+    width: min(80%, 600px);
+    container-type: inline-size;
+    container-name: main-wrapper;
+  }
+
+  form {
+    display: grid;
+    gap: 1rem;
+
+    @container main-wrapper (min-width: 400px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button {
+    background-color: var(--green-600);
+    padding: min(10%, 0.8em);
+    border-radius: 4px;
+  }
+
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: grid;
+    gap: 1rem;
+
+    @container main-wrapper (min-width: 400px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  /* The legend of the fieldset only gets the asterisk  */
+  fieldset:has([required]) legend,
+  .form-group:has(:not([type="radio"])[required]) label {
+    display: flex;
+    gap: 1ch;
+
+    &::after {
+      content: "*";
+      color: var(--green-600);
+    }
+  }
+
+  input,
+  textarea,
+  .form-group:has([type="radio"]) {
+    border-radius: 4px;
+    border: 1px solid var(--grey-500);
+    padding: min(0.7em, 10%);
+
+    &:focus-visible {
+      outline-color: var(--green-600);
+    }
+  }
+
+  [type="radio"],
+  [type="checkbox"] {
+    width: 1rem;
+  }
+
+  .form-group:has([type="radio"], [type="checkbox"]) {
+    flex-direction: row;
+    align-items: center;
+    gap: 1ch;
+  }
+
+  .form-group:has([type="radio"]:checked) {
+    background-color: var(--green-200);
+    border-color: var(--green-600);
+  }
+
+  fieldset legend,
+  .form-group:not(:has([type="radio"], [type="checkbox"])) > label {
+    margin-bottom: 10px;
+  }
+}
+
+@layer utilities {
+  .span-all {
+    grid-column: 1/-1;
+  }
+}
