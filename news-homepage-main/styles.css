@@ -98,8 +98,10 @@ p {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  gap: 10px;
   background-color: var(--very-dark-blue);
   padding: min(10%, 50px);
+  justify-content: center;
 }
 
 .new-item-container {
