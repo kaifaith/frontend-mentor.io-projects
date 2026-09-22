@@ -57,6 +57,9 @@
 }
 
 @layer components {
+  h1 {
+    margin-bottom: 1rem;
+  }
   .main-wrapper {
     background-color: var(--white);
     border-radius: 1rem;
@@ -84,6 +87,11 @@
     background-color: var(--green-600);
     padding: min(10%, 0.8em);
     border-radius: 4px;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--grey-900);
+    }
   }
 
   fieldset {
@@ -91,12 +99,9 @@
     margin: 0;
     border: none;
     display: grid;
-    gap: 1rem;
+    gap: inherit;
 
-    @container main-wrapper (min-width: 400px) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
+    grid-template-columns: inherit;
   }
 
   /* The legend of the fieldset only gets the asterisk  */
@@ -109,6 +114,12 @@
       content: "*";
       color: var(--green-600);
     }
+  }
+
+  textarea {
+    resize: vertical;
+    box-sizing: content-box;
+    height: 3lh;
   }
 
   input,
@@ -126,6 +137,16 @@
   [type="radio"],
   [type="checkbox"] {
     width: 1rem;
+  }
+
+  .form-group:has([type="radio"]) {
+    position: relative;
+
+    label::after {
+      content: "";
+      inset: 0;
+      position: absolute;
+    }
   }
 
   .form-group:has([type="radio"], [type="checkbox"]) {
@@ -148,5 +169,9 @@
 @layer utilities {
   .span-all {
     grid-column: 1/-1;
+  }
+
+  .white-text-color {
+    color: var(--white);
   }
 }
