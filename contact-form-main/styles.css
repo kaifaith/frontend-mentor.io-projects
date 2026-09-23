@@ -178,37 +178,48 @@
     display: none;
   }
 
-  .modal {
-    visibility: hidden;
+  .modal-container {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: start;
     pointer-events: none;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    transition: opacity 0.3s ease-in-out;
+    padding: 1rem;
+  }
+
+  .modal {
     background-color: var(--grey-900);
     padding: 1rem;
-    position: absolute;
-    top: -16em;
     border-radius: 1rem;
-    display: flex;
+    display: inherit;
     flex-direction: column;
     gap: 1ch;
-    transition:
-      top 200ms ease-in-out,
-      visibility 0s linear 250ms;
+
+    & > div {
+      display: inherit;
+      gap: inherit;
+    }
+
+    p {
+      color: var(--white);
+    }
   }
 
-  & > div {
-    display: inherit;
-    gap: inherit;
+  .modal-container.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
-
-  p {
-    color: var(--white);
-  }
-}
-
-.modal.show {
-  visibility: visible;
-  pointer-events: auto;
-  top: 0;
-  transition-delay: 0.3s;
 }
 
 @layer utilities {

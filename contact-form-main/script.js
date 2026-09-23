@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const modal = document.querySelector(".modal");
+const modalContainer = document.querySelector(".modal-container");
 
 function validateField(field) {
   const errorSpan =
@@ -41,11 +41,11 @@ form.addEventListener("submit", function (e) {
 
   if (isValid) {
     form.reset();
-    modal.classList.add("show");
+    modalContainer.classList.add("show");
 
     setTimeout(() => {
-      modal.classList.remove("show");
-    }, 5000);
+      modalContainer.classList.remove("show");
+    }, 3000);
   } else {
     form.querySelector(":invalid").focus();
   }
