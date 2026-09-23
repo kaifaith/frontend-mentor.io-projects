@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-block: 30px;
+    position: relative;
   }
 }
 
@@ -79,8 +79,10 @@
   }
 
   .form-group {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-rows: min-content;
+    /* display: flex;
+    flex-direction: column; */
   }
 
   .button {
@@ -150,7 +152,7 @@
   }
 
   .form-group:has([type="radio"], [type="checkbox"]) {
-    flex-direction: row;
+    display: flex;
     align-items: center;
     gap: 1ch;
   }
@@ -164,6 +166,49 @@
   .form-group:not(:has([type="radio"], [type="checkbox"])) > label {
     margin-bottom: 10px;
   }
+
+  input:user-invalid {
+    border-color: var(--red);
+  }
+
+  .error-message {
+    color: var(--red);
+  }
+  .error-message:empty {
+    display: none;
+  }
+
+  .modal {
+    visibility: hidden;
+    pointer-events: none;
+    background-color: var(--grey-900);
+    padding: 1rem;
+    position: absolute;
+    top: -16em;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1ch;
+    transition:
+      top 200ms ease-in-out,
+      visibility 0s linear 250ms;
+  }
+
+  & > div {
+    display: inherit;
+    gap: inherit;
+  }
+
+  p {
+    color: var(--white);
+  }
+}
+
+.modal.show {
+  visibility: visible;
+  pointer-events: auto;
+  top: 0;
+  transition-delay: 0.3s;
 }
 
 @layer utilities {

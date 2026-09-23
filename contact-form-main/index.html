@@ -17,7 +17,7 @@
   <body>
     <main class="main-wrapper">
       <h1>Contact Us</h1>
-      <form action="" method="get" novalidate>
+      <form action="" method="post" novalidate>
         <div class="form-group">
           <label for="first-name">First Name</label>
           <input
@@ -27,6 +27,7 @@
             autocomplete="given-name"
             required
           />
+          <span class="error-message" aria-live="polite"></span>
         </div>
 
         <div class="form-group">
@@ -38,11 +39,19 @@
             autocomplete="family-name"
             required
           />
+          <span class="error-message" aria-live="polite"></span>
         </div>
 
         <div class="form-group span-all">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" required />
+          <input
+            type="email"
+            data-error="Please enter a valid email address"
+            name="email"
+            id="email"
+            required
+          />
+          <span class="error-message" aria-live="polite"></span>
         </div>
 
         <fieldset class="span-all">
@@ -68,26 +77,52 @@
             />
             <label for="supp-req">Support Request</label>
           </div>
+
+          <span class="error-message" aria-live="polite"></span>
         </fieldset>
 
         <div class="form-group span-all">
           <label for="message">Message</label>
-          <textarea name="message" id="message" required aria-required="true">
-          </textarea>
+          <textarea
+            name="message"
+            id="message"
+            required
+            aria-required="true"
+          ></textarea>
+          <span class="error-message" aria-live="polite"></span>
         </div>
 
         <div class="form-group span-all">
-          <input type="checkbox" name="consent" id="consent" required />
+          <input
+            type="checkbox"
+            data-error="To submit this form, please consent to being contacted"
+            name="consent"
+            id="consent"
+            required
+          />
           <label for="consent">I consent to being contacted by the team</label>
+          <span class="error-message" aria-live="polite"></span>
         </div>
 
-        <button id="submit-btn" class="span-all button white-text-color">
+        <button
+          type="submit"
+          id="submit-btn"
+          class="span-all button white-text-color"
+        >
           Submit
         </button>
       </form>
     </main>
 
-    <!--
-    Submit Message Sent! Thanks for completing the form. We'll be in touch soon!-->
+    <div class="modal">
+      <div>
+        <img src="./assets/images/icon-success-check.svg" alt="" />
+        <p>Message Sent!</p>
+      </div>
+
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
