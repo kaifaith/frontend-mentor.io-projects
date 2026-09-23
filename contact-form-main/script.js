@@ -45,7 +45,7 @@ form.addEventListener("submit", function (e) {
 
     setTimeout(() => {
       modal.classList.remove("show");
-    }, 2500);
+    }, 5000);
   } else {
     form.querySelector(":invalid").focus();
   }
