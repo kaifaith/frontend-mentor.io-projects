@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@layer reset, base, components, utilities;
+
+@layer reset {
+  :root {
+    /* Primary */
+    --red-500: hsl(10, 79%, 65%);
+    --blue-300: hsl(186, 34%, 65%);
+
+    /* Neutral */
+    --brown-950: hsl(25, 47%, 15%);
+    --brown-400: hsl(28, 10%, 53%);
+    --red-100: hsl(26, 66%, 93%);
+
+    /* Typography */
+    --font-size-body: 18px;
+
+    /* Border */
+    --border-radius: 0.5rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  p {
+    margin: 0;
+  }
+}
+
+@layer base {
+  body {
+    display: flex;
+    min-height: 100vh;
+    min-height: 100dvh;
+    align-items: center;
+    justify-content: center;
+    font-family: "DM Sans", sans-serif;
+    background-color: var(--red-100);
+  }
+
+  main {
+    width: min(95%, 400px);
+    display: inherit;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .balance-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--red-500);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+
+    h1,
+    p {
+      color: white;
+    }
+
+    h1 {
+      font-size: var(--font-size-body);
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+
+  .main-chart-wrapper {
+    display: inherit;
+    flex-direction: inherit;
+    gap: 2rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+
+    p {
+      color: var(--brown-950);
+    }
+
+    .total-price {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .plus-percent {
+      font-weight: 600;
+    }
+
+    .bar-wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      .day {
+        display: inherit;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      & > .day > .bar {
+        background-color: black;
+        width: 30px;
+        height: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+
+    & > div:last-child {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      border-top: 3px solid var(--red-100);
+
+      & > div:last-child {
+        text-align: right;
+        align-self: flex-end;
+      }
+    }
+  }
+}
