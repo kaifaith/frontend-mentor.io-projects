@@ -1,0 +1,20 @@
+// Variables
+$primaryColor-intro-email: hsl(217, 28%, 15%);
+$primaryColor-main: hsl(218, 28%, 13%);
+$primaryColor-testimonials: hsl(219, 30%, 18%);
+
+$accentColor-CTA-teal: hsl(176, 68%, 64%);
+$accentCOlor-CTA-cyan: hsl(198, 60%, 50%);
+$aceentColor-error: hsl(0, 100%, 63%);
+
+$neutralColor: hsl(0, 0%, 100%);
+
+$font-weights: (
+  "regular": 400,
+  "extra-bold": 700,
+);
+$font-size: 14px;
+
+body {
+  background-color: $primaryColor-main;
+}
