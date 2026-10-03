@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.result-container {
+  padding: 3.5rem 0 1rem 0;
+  line-height: 60px;
+  font-size: clamp(3rem, 4vw, 3.5rem);
+
+  p {
+    margin-block: 0;
+
+    span {
+      color: $purple-500;
+    }
+  }
+}

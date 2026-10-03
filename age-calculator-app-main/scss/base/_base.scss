@@ -1,0 +1,20 @@
+@use "../abstracts" as *;
+
+body {
+  background-color: $grey-200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: $font-family;
+  accent-color: $purple-500;
+}
+
+form {
+  background-color: $white;
+  padding: 1.5rem;
+  border-radius: 16px 16px 100px 16px;
+  width: calc(100% - 2rem);
+  max-width: 500px;
+}
