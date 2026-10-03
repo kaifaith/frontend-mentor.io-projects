@@ -1,8 +1,16 @@
 @media (min-width: 550px) {
+  .input-wrapper {
+    padding: 1rem 0 1.5rem 0;
+    justify-content: left;
+  }
+
   button {
-    background-color: aqua;
     left: auto;
     right: 0;
     transform: none;
+  }
+
+  .result-container {
+    padding: 1.5rem 0 0 0;
   }
 }
