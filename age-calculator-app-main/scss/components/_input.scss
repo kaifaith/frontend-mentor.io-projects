@@ -19,6 +19,11 @@
     flex-direction: column;
     gap: 0.3rem;
 
+    .error-message {
+      color: $red-400;
+      font-size: 0.5rem;
+    }
+
     label {
       font-size: 0.8rem;
       letter-spacing: 4px;
@@ -40,6 +45,14 @@
 
       &::placeholder {
         font-weight: 700;
+      }
+
+      .invalid-input {
+        border-color: $red-400;
+      }
+
+      &:invalid {
+        border-color: $red-400;
       }
     }
   }
