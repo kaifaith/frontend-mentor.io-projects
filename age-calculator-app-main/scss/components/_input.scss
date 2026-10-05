@@ -30,6 +30,10 @@
       color: $grey-500;
     }
 
+    &:has(input.invalid-input) label {
+      color: $red-400;
+    }
+
     input {
       padding: 0.6rem;
       border-radius: 5px;
@@ -41,17 +45,14 @@
       &:active,
       &:focus {
         border: 1px solid $purple-500;
+        outline: none;
       }
 
       &::placeholder {
         font-weight: 700;
       }
 
-      .invalid-input {
-        border-color: $red-400;
-      }
-
-      &:invalid {
+      &.invalid-input {
         border-color: $red-400;
       }
     }

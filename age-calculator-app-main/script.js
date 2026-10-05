@@ -29,59 +29,82 @@ const showError = (inputField, message) => {
   const errorMsg = document.createElement("p");
   errorMsg.textContent = message;
   errorMsg.className = "error-message poppins-light-italic";
-  inputField.className = "invalid-input";
+  inputField.classList.add("invalid-input");
   inputField.after(errorMsg);
 };
 
 const clearErrors = () => {
   document.querySelectorAll(".error-message").forEach((el) => el.remove());
+  document
+    .querySelectorAll(".invalid-input")
+    .forEach((el) => el.classList.remove("invalid-input"));
+};
+
+const input = {
+  day: document.getElementById("day"),
+  month: document.getElementById("month"),
+  year: document.getElementById("year"),
 };
 
 const validateField = (day, month, year) => {
   clearErrors();
 
-  const input = {
-    day: document.getElementById("day"),
-    month: document.getElementById("month"),
-    year: document.getElementById("year"),
-  };
+  const currentYear = new Date().getFullYear();
+
+  // Matag field naay kaugalingong rule
+  const rules = [
+    {
+      el: input.day,
+      value: day,
+      min: 1,
+      max: 31,
+      message: "Must be a valid day",
+    },
+    {
+      el: input.month,
+      value: month,
+      min: 1,
+      max: 12,
+      message: "Must be a valid month",
+    },
+    {
+      el: input.year,
+      value: year,
+      min: 1000,
+      max: currentYear,
+      message: "Must be a valid year",
+    },
+  ];
 
   let hasError = false;
 
-  if (!day) {
-    showError(input.day, "This field is required");
-    hasError = true;
+  // Stage 1: i-check ang matag field usag usa, apan walay return sa tunga
+  rules.forEach(({ el, value, min, max, message }) => {
+    if (!el.value.trim()) {
+      showError(el, "This field is required");
+      hasError = true;
+    } else if (!Number.isInteger(value) || value < min || value > max) {
+      showError(el, message);
+      hasError = true;
+    }
+  });
+
+  if (hasError) return "Please fix the errors";
+
+  // Stage 2: kini nagkinahanglan sa tanan nga tulo, mao nang human ra mo-run
+  const date = new Date(year, month - 1, day);
+
+  // Catch sa 31/04, 30/02, ug uban pa
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    showError(input.day, "Must be a valid date");
+    return "Invalid date";
   }
 
-  if (!month) {
-    showError(input.month, "This field is required");
-    hasError = true;
-  }
-
-  if (!year) {
-    showError(input.year, "This field is required");
-    hasError = true;
-  }
-
-  if (hasError) {
-    return "Please fill in all fields";
-  }
-
-  // Human ma-check nga TANAN naay value, i-validate pa ang format
-  const today = new Date();
-  const inputDate = new Date(year, month - 1, day);
-
-  if (day < 1 || day > 31) {
-    showError(input.day, "Must be a valid day");
-    return "Invalid day";
-  }
-
-  if (month < 1 || month > 12) {
-    showError(input.month, "Must be a valid month");
-    return "Invalid month";
-  }
-
-  if (inputDate > today) {
+  if (date > new Date()) {
     showError(input.year, "Must be in the past");
     return "Date must be in the past";
   }
